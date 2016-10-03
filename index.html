@@ -1,13 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<!-- Latest compiled and minified CSS -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
  </head>
 <body>
@@ -20,42 +17,52 @@
       </a>
     </div>
     <div class="media-body">
-      <h1>Меня зовут Андреев Дмитрий. <small>Мне 18 лет.</small></h1>
+      <h1>Андреев Дмитрий, 18</h1>
     </div>
   </div>
 <h2>Образование</h2>
-<p>МЭИ АВТИ, 2 курс. Кафедра прикладной математики.</p>
+<li>МЭИ АВТИ, 2 курс. Кафедра прикладной математики.</li>
 <h2>Работа</h2>
-<p>С июля 2016 работаю в web-студии <a target="_blank" href="http://oxem.ru">OXEM</a>  junior менеджером проектов</p>
-<h2>Участие в конференциях</h2>
-<p >Ездил с одноклассниками на конференцию Яндекса для школьников: <a target="_blank" href="https://academy.yandex.ru/events/school-conf/">academy.yandex.ru/events/school-conf</a>. Мы делали LocalChat - платформу, на которой можно найти собеседников по близости и сразу же начать общаться. Ничего не выиграли, но было прикольно.</p>
-<h2>Что я умею делать</h2>
+<p>Работаю в web-студии <a target="_blank" href="http://oxem.ru">OXEM</a>   Junior PMом</p>
+
+<h2>Навыки</h2>
 <ul>
-<li>Писать скрипты на python</li>
-<li>Писать простую логику сайта на javascript</li>
-<li>Решать учебные задачи на pascal</li>
-<li>Решать учебный задачи на C++</li>
-<li>Верстать несложные вещи на Bootstrap</li>
-<li>Понимаю, как работать с git</li>
+  <li>Английский (чтение тех. литературы)</li>
+  <li>Python, C++</li>
+  <li>HTML/CSS/JS</li>
+  <li>bash, git</li>
 </ul>
 <h2>Мои проекты</h2>
-<dl><dt>LocalChat(<a target="_blank" href="http://lch.herokuapp.com">lch.herokuapp.com</a>) - сайт, на котором можно создать чат в любом месте и переписываться в нем. Создавался для конференции Яндекса.</dt>
-<dd>Мое участие: делал сервер + часть сайта с картой.</dd>
-<dd>Чему научился: немного освоил <mark>Django</mark>, научился работать с <mark>javascript</mark>, понял базовые принципы работы с <mark>Yandex Maps api</mark></dd>
+<dl><dt>LocalChat</dt>
+<ul>
+<li><a target="_blank" href="http://lch.herokuapp.com">lch.herokuapp.com</a></li>
+<li>Ездил с одноклассниками на конференцию Яндекса для школьников: <a target="_blank" href="https://academy.yandex.ru/events/school-conf/">academy.yandex.ru/events/school-conf</a>. Разработали LocalChat - платформу, для поиска собеседников поблизости</li>
+<li>Мое участие: делал бакенд + интерактивный фронтенд</li>
+<li>Cайт, на котором можно создать чат в любом месте и переписываться в нем. Создавался для конференции Яндекса.</li>
+<li>Чему научился: немного освоил <mark>Django</mark>, научился работать с <mark>javascript</mark>, понял базовые принципы работы с <mark>Yandex Maps api</mark></li>
+</ul>
 </dl>
 <dl>
-<dt>DrawCo.in(сейчас не поднят) - сайт-лотерея. Оплатить можно только с bitcoin.</dt>
-<dd>Мое участие: делал фронэнд сайту.</dd>
-<dd>Чему научился: работать с <mark>svg графикой</mark>, верстать на <mark>bootstrap</mark>, работать с <mark>git</mark></dd>
+<dt>DrawCo.in</dt>
+<ul>
+<li>Cайт-лотерея. Оплатить можно только с bitcoin.</li>
+<li>Мое участие: делал фронэнд сайту.</li>
+<li>Чему научился: работать с <mark>svg графикой</mark>, верстать на <mark>bootstrap</mark>, работать с <mark>git</mark></li>
+</ul>
 </dl>
-<dl><dt>Betfair bot - бот на python для взаимодействия с биржей ставок betfair. Не могу описать подробно его назначение, но он предназначен для live ставок.</dt>
-<dd>Мое участие: разрабатывал его целиком, продумывал логику работы.</dd>
-<dd>Чему научился: прочувствовал суть <mark>объектно-ориентированного программирования</mark>, полностью понял, что такое <mark>REST api</mark>, начал понимать структуру биржи ставок</dd>
+<dl><dt>Betfair bot</dt>
+<ul>
+<li>Бот на python для взаимодействия с биржей ставок betfair. Не могу описать подробно его назначение, но он предназначен для live ставок.</li>
+<li>Мое участие: разрабатывал его целиком, продумывал логику работы.</li>
+<li>Чему научился: прочувствовал суть <mark>объектно-ориентированного программирования</mark>, полностью понял, что такое <mark>REST api</mark>, начал понимать структуру биржи ставок</li>
+</ul>
 </dl>
 <h2>Мои контакты</h2>
-<p><a hreg="tel:+79251117893">+7 925 111-78-93</a></p>
-<p><a href="mailto:deal.d@me.com">deal.d@me.com</a></p>
-<a href="https://github.com/Whynot63" target="_blank">github.com/Whynot63</a>
+<ul>
+  <li><a href="tel:+79251117893">+7(925)111-78-93</a></li>
+  <li><a href="mailto:deal.d@me.com">deal.d@me.com</a></li>
+  <li><a href="https://github.com/Whynot63" target="_blank">github.com/Whynot63</a></div><li>
+</ul>
 </div>
 </div>
 </body>
