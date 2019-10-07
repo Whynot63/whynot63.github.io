@@ -59,7 +59,6 @@ task_drag = e => {
     var max_overlap = overlap(task_div, nearest_stage);
     for (var stage_div of document.querySelectorAll("div#scrum_board>div")) {
       var current_overlap = overlap(stage_div, task_div)
-      console.log(current_overlap, stage_div);
       if (current_overlap > max_overlap) {
         nearest_stage = stage_div;
         max_overlap = current_overlap;
@@ -99,7 +98,6 @@ task_drag = e => {
   </div>
   <div id="scrum_board">
     <div id="Backlog" class="stage"><h3>Backlog</h3>
-      <div class="task" onmousedown="task_drag">Do something!</div>
     </div>
     <div id="In progress" class="stage"><h3>In progress</h3></div>
     <div id="Done" class="stage"><h3>Done</h3></div>
