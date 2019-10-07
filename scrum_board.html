@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+<style>
+.stage {
+  width: 310px;
+  float: left;
+  border: solid 1px;
+  margin: 10px;
+  padding: 5px;
+}
+.task {
+  width: 300px;
+  height: 30px;
+}
+.task:hover {
+  background: rgba(204, 230, 211, 30);
+}
+</style>
+<script>
+task_drag = e => {
+  task_div = e.target;
+  task_div.style.position = "absolute";
+
+  moveAt(e);
+  document.body.appendChild(task_div);
+
+  task_div.style.zIndex = 1000;
+  function moveAt(e) {
+    task_div.style.left = e.pageX - task_div.offsetWidth / 2 + 'px';
+    task_div.style.top = e.pageY - task_div.offsetHeight / 2 + 'px';
+  }
+  document.onmousemove = moveAt;
+
+  function overlap(elem1, elem2) {
+    bb1 = elem1.getBoundingClientRect();
+    bb2 = elem2.getBoundingClientRect();
+
+    x1 = Math.max(bb1.left, bb2.left);
+    y1 = Math.max(bb1.top, bb2.top);
+    x2 = Math.min(bb1.right, bb2.right);
+    y2 = Math.min(bb1.bottom, bb2.bottom);
+
+    return (x2 - x1) * (y2 - y1);
+  }
+
+  function elem_y(elem) {
+    bb = elem.getBoundingClientRect();
+    return bb.y;
+  }
+
+  task_div.onmouseup = () => {
+    document.onmousemove = null;
+    task_div.onmouseup = null;
+
+    var nearest_stage = document.querySelector(".stage");
+    var max_overlap = overlap(task_div, nearest_stage);
+    for (var stage_div of document.querySelectorAll("div#scrum_board>div")) {
+      var current_overlap = overlap(stage_div, task_div)
+      console.log(current_overlap, stage_div);
+      if (current_overlap > max_overlap) {
+        nearest_stage = stage_div;
+        max_overlap = current_overlap;
+      }
+    }
+
+    var tasks_in_stage = nearest_stage.querySelectorAll(".task");
+    if (tasks_in_stage.length == 0) {
+      nearest_stage.append(task_div);
+      task_div.style.position = "static";
+      return;
+    }
+
+    for (var task of tasks_in_stage) {
+      if (elem_y(task_div) < elem_y(task)) {
+        nearest_stage.insertBefore(task_div, task);
+        task_div.style.position = "static";
+        return;
+      }
+      nearest_stage.appendChild(task_div);
+      task_div.style.position = "static";
+    }
+  }
+
+}
+</script>
+  </head>
+  <body>
+
+  <div>
+    <input type="text" id="task_input">
+    <button type="button" id="add_task_button">Add task</button>
+  </div>
+  <div>
+    <input type="text" id="stage_input">
+    <button type="button" id="add_stage_button">Add stage</button>
+  </div>
+  <div id="scrum_board">
+    <div id="Backlog" class="stage"><h3>Backlog</h3>
+      <div class="task" onmousedown="task_drag">Do something!</div>
+    </div>
+    <div id="In progress" class="stage"><h3>In progress</h3></div>
+    <div id="Done" class="stage"><h3>Done</h3></div>
+
+  </div>
+  </body>
+
+<script type="text/javascript">
+document.querySelector("#add_task_button").addEventListener("click", e => {
+  task_text = document.querySelector("#task_input").value;
+
+  task_div = document.createElement('div');
+  task_div.onmousedown = task_drag;
+  task_div.className = "task";
+  task_div.appendChild(document.createTextNode(task_text));
+
+  stage_div = document.querySelector(".stage")
+  if (stage_div) {
+    stage_div.appendChild(task_div);
+  }
+
+});
+
+document.querySelector("#add_stage_button").addEventListener("click", e => {
+  stage_name = document.querySelector("#stage_input").value;
+
+  for (stage_div of document.querySelectorAll("div#scrum_board>div"))
+    if (stage_div.id == stage_name) return;
+
+  stage_header = document.createElement("h3");
+  stage_header.innerHTML = stage_name;
+
+  stage_div = document.createElement("div");
+  stage_div.id = stage_name;
+  stage_div.className = "stage";
+  stage_div.appendChild(stage_header);
+
+  scrum_board.append(stage_div);
+});
+
+</script>
+</html>
